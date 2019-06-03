@@ -7,5 +7,6 @@ class Chef < ApplicationRecord
     length: {maximum:30, message:'Name Max. Length is 30 Character!'}
     validates :email, presence: {messages:'Email cannot be blank!'},
     format: {with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i},
-    uniqueness: { case_sensitive: false }, 
+    uniqueness: { case_sensitive: false }
+
 end
