@@ -16,3 +16,6 @@
 //= require_tree
 //= require jquery3
 //= require bootstrap-sprockets
+//= require trix
+//= require trix_attachments
+
