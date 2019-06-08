@@ -7,7 +7,7 @@
             </strong>
         </h4>
         <hr/>
-        <%= sanitize simple_format(@recipe.description) %>
+        <%= sanitize raw(@recipe.description) %>
         <hr/>
         <div class="pull-right">
             <p class="center">
