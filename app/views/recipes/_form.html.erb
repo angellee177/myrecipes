@@ -17,8 +17,8 @@
                         <%= f.label :description %>
                     </div>
                     <div class="col-md-8">
-                        <%= f.text_area :description, as: :trix_editors , rows: 10, class:'form-control'%>
-                        <%# <trix-editor input="recipe_description"></trix-editor> %>
+                        <%= f.hidden_field :description, id: :recipe_description , rows: 10, class:'form-control'%>
+                        <trix-editor input="recipe_description"></trix-editor>
                     </div>
                 </div>
                 <div class="form-group">
