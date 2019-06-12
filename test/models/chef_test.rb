@@ -1,7 +1,9 @@
 require 'test_helper'
 class ChefTest < ActiveSupport::TestCase
     def setup
-        @chef = Chef.new(chef_name: "Hello test", email: "testing@text.com")
+        @chef = Chef.new(chef_name: "Hello test", email: "testing@text.com",
+            password: "password", password_confirmation:"password")
+    
     end
 
     test "Should be Valid" do
@@ -30,5 +32,15 @@ class ChefTest < ActiveSupport::TestCase
         @chef.email = mixed_email
         @chef.save
         assert_equal mixed_email.downcase, @chef.reload.email
+    end
+
+    test "password should be present" do
+        @chef.password = @chef.password_confirmation = " "
+        assert_not @chef.valid?
+    end
+
+    test "Password should be at least 5 Character" do
+        @chef.password = @chef.password_confirmation = "x" * 4
+        assert_not @chef.valid?
     end
 end
