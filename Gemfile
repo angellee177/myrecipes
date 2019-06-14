@@ -74,3 +74,6 @@ gem 'jquery-rails'
 
 # Install Text Editor
 gem 'trix'
+
+# Handling Uploader Picture Error
+gem 'net-ssh'

@@ -7,6 +7,14 @@
                 <%# Chef Name Column %>
                 <div class="form-group">
                     <div class="control-label col-md-2">
+                        <%= f.label :picture %>
+                    </div>
+                    <div class="col-md-8">
+                        <%= f.file_field :picture %>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="control-label col-md-2">
                         <%= f.label :chef_name %>
                     </div>
                     <div class="col-md-8">

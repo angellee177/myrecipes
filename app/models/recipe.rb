@@ -6,4 +6,5 @@ class Recipe < ApplicationRecord
     validates :description, presence: true,
     length:{in: 10..10000}
     validates :chef_id, presence:true
+    
 end

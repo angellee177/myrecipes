@@ -14,6 +14,11 @@
                 <em>Created By:</em>
             </p>
             <p class="center">
+                <% if @recipe.picture.present? %>
+                        <%= image_tag(@recipe.picture_url, size:120, class:'img')%>
+                    <% else %>
+                        <%= gravatar_for @recipe.chef, recipes_path %>
+                    <% end %>
                 <%= link_to gravatar_for(@recipe.chef), recipes_path %>
             </p>
             <p class="center">
