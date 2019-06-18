@@ -7,4 +7,6 @@ class Recipe < ApplicationRecord
     length:{in: 10..10000}
     validates :chef_id, presence:true
     
+    default_scope -> { order(updated_at: :desc) }
+
 end

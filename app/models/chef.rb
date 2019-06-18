@@ -5,8 +5,7 @@ class Chef < ApplicationRecord
     mount_uploader :picture, PictureUploader
     
     # Association One to Many between Chef and Recipes
-    has_many :recipes
-
+    has_many :recipes, dependent: :destroy #to delete all associate recipes with Chef
     # Add Secure Password
     has_secure_password
 

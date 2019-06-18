@@ -77,3 +77,7 @@ gem 'trix'
 
 # Handling Uploader Picture Error
 gem 'net-ssh'
+
+# For Pagination
+gem 'will_paginate', '3.1.0'
+gem 'bootstrap-will_paginate', '0.0.10'
