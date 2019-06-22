@@ -25,10 +25,13 @@
         </div>
     </div>
     <div class="recipe-actions">
+    <%# Only  Chef who create this recipe can delete and edit this Recipe %>
+    <% if logged_in? && current_chef == @recipe.chef %>
         <%= link_to "Edit this Recipe", edit_recipe_path(@recipe), class: "btn btn-xs btn-warning" %>
         <%= link_to "Delete this Recipe",  recipe_path(@recipe), method: :delete,
                                         data: { confirm: "Are you sure you want to Delete this Recipe?"}, 
                                         class: 'btn btn-xs btn-danger' %>
+    <% end %>
         <%= link_to "Return to Recipes Listing", recipes_path, class:'btn btn-xs btn-primary'%>
     </div>
 </div>
