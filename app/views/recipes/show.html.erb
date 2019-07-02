@@ -17,7 +17,13 @@
                 <%= link_to gravatar_for(@recipe.chef), recipes_path %>
             </p>
             <p class="center">
-                <small><%= @recipe.chef.chef_name.capitalize %></small>
+                <small>
+                    <% if current_chef.admin? %>
+                        <%= current_chef.chef_name.capitalize %>'s Admin
+                    <% else %>
+                        <%= @recipe.chef.chef_name.capitalize %>
+                    <% end %>
+                </small>
                 <div class="pull-right">
                     <div class="pull-right">Created:<%= time_ago_in_words(@recipe.created_at)%> ago
                 </div>
@@ -26,7 +32,7 @@
     </div>
     <div class="recipe-actions">
     <%# Only  Chef who create this recipe can delete and edit this Recipe %>
-    <% if logged_in? && current_chef == @recipe.chef %>
+    <% if logged_in? && (current_chef == @recipe.chef || current_chef.admin?) %>
         <%= link_to "Edit this Recipe", edit_recipe_path(@recipe), class: "btn btn-xs btn-warning" %>
         <%= link_to "Delete this Recipe",  recipe_path(@recipe), method: :delete,
                                         data: { confirm: "Are you sure you want to Delete this Recipe?"}, 

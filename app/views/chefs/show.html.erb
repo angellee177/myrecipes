@@ -1,8 +1,8 @@
 <%= render 'shared/page_title', title: "Chef #{@chef.chef_name}'s Profile"%>
 <div class="row">
     <div class="col-md-4 col-md-offset-4 center">
-    <% if @chef.picture.present? %>
-        <%= image_tag(@chef.picture_url, size:150, class:'img')%>
+    <% if @chef.picture.attached? %>
+        <%= image_tag url_for(@chef.picture), size:'150', class:'img rounded-circle'%>
     <% else %>
         <%= gravatar_for @chef, size: 150 %>
     <% end %>

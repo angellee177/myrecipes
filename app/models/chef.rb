@@ -1,8 +1,8 @@
 class Chef < ApplicationRecord
     before_save { self.email = email.downcase }
     
-    # For Upload Picture
-    mount_uploader :picture, PictureUploader
+    # For Upload Photo
+    has_one_attached :picture
     
     # Association One to Many between Chef and Recipes
     has_many :recipes, dependent: :destroy #to delete all associate recipes with Chef

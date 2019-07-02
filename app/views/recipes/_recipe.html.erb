@@ -1,9 +1,13 @@
 <% obj.each do |recipe| %>
     <div class="row">
         <div class="col-md-2">
-                 <section class="chef_info center">
-        <%= gravatar_for(recipe.chef, size: 120) %>
-      </section>
+            <section class="chef_info center">
+                <% if recipe.chef.picture.attached? %>
+                    <%= image_tag url_for(recipe.chef.picture), size:'150', class:'img rounded-circle'%>
+                <% else %>
+                    <%= gravatar_for(recipe.chef, size: 120) %>
+                <% end %>
+            </section>
         </div>
         <div class="col-md-8 well">
             <h4><%= link_to recipe.name, recipe_path(recipe) %></h4>
@@ -11,7 +15,7 @@
             <p>
                 <span class="quiet"><small><%= time_ago_in_words(recipe.created_at) %> ago</small></span>
             </p>
-            <% if logged_in? && current_chef == recipe.chef %>
+            <% if logged_in? && (current_chef == recipe.chef || current_chef.admin?) %>
                 <div class="recipe-actions">
                 <%= link_to "Edit this Recipe", edit_recipe_path(recipe), class: "btn btn-xs btn-warning" %>
                 <%= link_to "Delete this Recipe",  recipe_path(recipe), method: :delete,
