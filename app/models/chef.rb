@@ -6,6 +6,10 @@ class Chef < ApplicationRecord
     
     # Association One to Many between Chef and Recipes
     has_many :recipes, dependent: :destroy #to delete all associate recipes with Chef
+
+    #Association many to many with Comment
+    has_many :comments, dependent: :destroy 
+
     # Add Secure Password
     has_secure_password
 
