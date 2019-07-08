@@ -9,23 +9,28 @@
         <hr/>
         <%= sanitize(@recipe.description)%>
         <hr/>
+        <% if @recipe.ingredients.any? %>
+            <p>Ingredients: <%= render @recipe.ingredients %></p>
+        <% end %>
+        <% %>
         <div class="pull-right">
             <p class="center">
                 <em>Created By:</em>
             </p>
             <p class="center">
-                <%= link_to gravatar_for(@recipe.chef), recipes_path %>
+            <% if @recipe.chef.picture.attached? %>
+                    <%= image_tag url_for(@recipe.chef.picture), size:'150', class:'img rounded-circle'%>
+            <% else %>
+                    <%= link_to gravatar_for(@recipe.chef, size: 120), chef_path(@recipe.chef) %>
+            <% end %>
             </p>
             <p class="center">
                 <small>
-                    <% if current_chef.admin? %>
-                        <%= current_chef.chef_name.capitalize %>'s Admin
-                    <% else %>
-                        <%= @recipe.chef.chef_name.capitalize %>
-                    <% end %>
+
+                        <%= link_to @recipe.chef.chef_name.capitalize, chef_path(@recipe.chef) %>
                 </small>
                 <div class="pull-right">
-                    <div class="pull-right">Created:<%= time_ago_in_words(@recipe.created_at)%> ago
+                    <div class="pull-right"><small>Created:<%= time_ago_in_words(@recipe.created_at)%> ago</small>
                 </div>
             </p>
         </div>

@@ -8,8 +8,11 @@
     <% end %>
     </div>
 </div>
+<% if @chef.recipes.count != 0 %>
+    <h4 style="text-align:center"><%= @chef.chef_name %>'s Recipes</h4>
 
-<h4 style="text-align:center"><%= @chef.chef_name %>'s Recipes</h4>
 
-
-<%= render 'recipes/recipe', obj:@chef_recipes %>
+    <%= render 'recipes/recipe', obj:@chef_recipes %>
+<% else %>
+    <h4 style="text-align:center">No Recipes Yet!</h4>
+<% end %>

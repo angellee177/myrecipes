@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   # Create routes for Chef
   resources :chefs, except: [:new]
 
+  #Create Routes for Ingredients
+  resources :ingredients, except: [:destroy]
+
   # Create Routes for Signup
   get '/signup', to: 'chefs#new'
 

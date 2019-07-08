@@ -1,0 +1,18 @@
+<%= render'shared/page_title', title: 'Avaible Ingredients' %>
+
+<div style="text-align:center">
+    <% @ingredients.each do |ing| %>
+        <ul class="listing">
+            <div class="row">
+                <div class="well col-md-4 col-md-offset-4">
+                    <li class="chef-title"><%= link_to ing.name.capitalize, ingredient_path(ing) %></li>
+                    <li><small><%= pluralize(ing.recipes.count, "Recipe") if ing.recipes %></small></li>
+                    <%# Only Admin who can delete all Chef Account %>
+                    <% if logged_in? && current_chef.admin? %>
+                        <li><%= link_to "Edit this Ingredient", edit_ingredient_path(ing) %></li>
+                    <% end %>
+                </div>
+            </div>
+        </ul>
+    <% end %>
+</div>
