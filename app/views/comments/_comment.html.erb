@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-md-2">
+        <section class="chef_info center">
+            <% if comment.chef.picture.attached? %>
+                <%= image_tag url_for(comment.chef.picture), size:'150', class:'img rounded-circle'%>
+            <% else %>
+                <%= gravatar_for(comment.chef, size: 120) %>
+            <% end %>
+        </section>
+    </div>
+    <div class="col-md-8 well">
+        <p><%= comment.description %></p>
+        <p>
+            <span class="quiet">
+                <small>
+                    Create: <%= time_ago_in_words(comment.created_at) %>ago by
+                    <%= comment.chef.chef_name %>
+                </small>
+            </span>
+        </p>
+    </div>
+</div>

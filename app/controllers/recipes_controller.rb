@@ -37,7 +37,7 @@ class RecipesController < ApplicationController
     end
 
     def show
-        
+        @comments = @recipe.comments.all
     end
 
     def destroy
@@ -52,7 +52,8 @@ class RecipesController < ApplicationController
     end
 
     def recipe_params
-        params.require(:recipe).permit(:name, :description, ingredient_ids: []) #Ingredient_id to get all Ingredient Data
+        params.require(:recipe).permit(:name, :description, ingredient_ids: []) 
+        #Ingredient_id to get all Ingredient Data
     end
     # Only same user who create the Recipe can delete or edit
     def require_same_user
