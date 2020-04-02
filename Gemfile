@@ -87,3 +87,6 @@ gem 'net-ssh'
 # For Pagination
 gem 'will_paginate', '3.1.0'
 gem 'bootstrap-will_paginate', '0.0.10'
+
+# for Haml view
+gem 'haml', '~> 5.1', '>= 5.1.1'

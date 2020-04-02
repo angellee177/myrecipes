@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Dinding Kreatif</title>
+    <title>Yummy !</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'%>
   </head>
   <body>
-<nav class="navbar navbar-inverse" style="height:70px">
+
+<nav class="navbar navbar-default" style="height:70px">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -21,7 +22,7 @@
       <a class="navbar-brand" href="#">
         <%= image_tag("dk.jpeg", :alt=>"Dinding Kreatif", style:'width:50px;height:45px') %>
       </a>
-      <%= link_to "MyRecipes", root_path, class: "navbar-brand", id:"logo" %>
+      <%= link_to "Yummy!", root_path, style: "color:#1F1F1F", id:"logo" %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -60,12 +61,12 @@
           </ul>
         </li>
       </ul>
-      <form class="navbar-form navbar-left">
+      <%# <form class="navbar-form navbar-left">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
-      </form>
+      </form> %>
       <ul class="nav navbar-nav navbar-right">
 
         <%# Hide Dropdown Menu only for User Already Login %>

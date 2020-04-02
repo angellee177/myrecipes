@@ -18,7 +18,7 @@
                         <%= f.label :chef_name %>
                     </div>
                     <div class="col-md-8">
-                        <%= f.text_field :chef_name, class:'form-control', type:'text', placeholder:'Enter Your Recipe', autofocus: true%>
+                        <%= f.text_field :chef_name, class:'form-control', type:'text', placeholder:'USERNAME', autofocus: true, style:"text-align: center"%>
                     </div>
                 </div>
                 <%# Chef Email Column %>
@@ -27,7 +27,7 @@
                         <%= f.label :email %>
                     </div>
                     <div class="col-md-8">
-                        <%= f.email_field :email, class:'form-control', placeholder:'Enter your Email Here'%>
+                        <%= f.email_field :email, class:'form-control', placeholder:'EMAIL', style:"text-align: center"%>
                     </div>
                 </div>
                 <%# Chef Password Column %>
@@ -36,7 +36,7 @@
                         <%= f.label :password %>
                     </div>
                     <div class="col-md-8">
-                        <%= f.password_field :password, class:'form-control', placeholder:'Enter your Password'%>
+                        <%= f.password_field :password, class:'form-control', placeholder:'PASSWORD', style:"text-align: center"%>
                     </div>
                 </div>
                 <%# Chef Password Confirmation Column %>
@@ -45,7 +45,7 @@
                         <%= f.label :password_confirmation, "Confirm Password" %>
                     </div>
                     <div class="col-md-8">
-                        <%= f.password_field :password_confirmation, class:'form-control', placeholder:'Confirm your Password Here'%>
+                        <%= f.password_field :password_confirmation, class:'form-control', placeholder:'CONFIRM PASSWORD', style:"text-align: center" %>
                     </div>
                 </div>
                 <div class="form-group">

@@ -11,6 +11,14 @@ Rails.application.routes.draw do
   # Create Routes for Signup
   get '/signup', to: 'chefs#new'
 
+  # Reset Password
+  get '/forgot-passwords', to: 'forgot_passwords#new'
+  get 'forgot_password_confirmation', to: 'forgot_passwords#confirm'
+  get 'expired_token', to: 'password_resets#expired_token'
+  resources :forgot_passwords,  only: [:create]
+  resources :password_resets,   only: [:show, :create]
+
+
   # Set the Default Homepage
   root 'pages#home'
   get 'pages/home', to: 'pages#home'

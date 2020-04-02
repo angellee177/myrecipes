@@ -1,4 +1,5 @@
 <%= render 'shared/page_title', title:'Log in'%>
+<div class="container">
     <%= form_for(:session, :html => {class: "form-horizontal", role: "form"}, url: login_path) do |f| %>
     <%# Chef Email Column %>
         <div class="form-group">
@@ -25,6 +26,15 @@
             </div>
         </div>
     <% end %>
-    <div class="colormatch" >
-        <%= link_to "Don't have an account? Create new Account Now", signup_path, style:'text-align:center' %>
-   </div>
+    <div class="row" style="padding-top:20px">
+        <div class="colormatch" style="text-align:center;">
+            <%= link_to "Don't have an account? Create new Account Now", signup_path%> 
+        </div>
+        <div class="colormatch" style="text-align:center">
+            <span style="color:#302F37; font-size:14pt; text-align: center">or</span>
+        </div>
+        <div class="colormatch" style="text-align:center;">
+            <%= link_to "Forgot password?", forgot_passwords_path %>
+        </div>
+    </div>
+</div>
