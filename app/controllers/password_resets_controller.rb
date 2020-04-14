@@ -9,12 +9,14 @@ class PasswordResetsController < ApplicationController
     end
     
     def create
-        chef = Chef.find_by(token: params[:token])
-        if chef && chef.update(password: params[:password], token: nil)
+        @chef = Chef.find_by(token: params[:token]);
+        puts(@chef);
+        if @chef && @chef.update(password: params[:password], token: nil)
           flash[:success] = "Your password has been changed. Please sign in."
           redirect_to login_path
-        elsif chef
-          @token = chef.token
+        elsif @chef
+          @token = @chef.token
+          flash[:danger] = "Failed to change password"
           render :show
         else
           redirect_to expired_token_path
