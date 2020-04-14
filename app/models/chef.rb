@@ -25,4 +25,14 @@ class Chef < ApplicationRecord
     # Validation For Password
     validates :password, presence: true, length: { minimum: 5 }, allow_nil: true #allow us to not change our password
 
+    def update_with_token!
+        update_column(:token, generate_token)
+    end
+
+    private
+
+    def generate_token
+        SecureRandom.urlsafe_base64
+    end
+
 end

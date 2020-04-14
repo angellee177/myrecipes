@@ -1,5 +1,3 @@
-<!-- forgot_passwords/new.html.haml -->
-
 %section.forgot_password.container
   .row
     .col-sm-10.col-bg-offset-1
@@ -10,7 +8,7 @@
         .form-group
           = label_tag :email, "Email Address"
           .row
-            .col-sm-4
-              = email_field_tag :email, class: "form-control"
+            .col-md-4
+              = email_field_tag :email
         .form-group.action
-          = submit_tag "Send Email", class: "btn btn-default"
+          = submit_tag "Send Email", class: "btn btn-danger"

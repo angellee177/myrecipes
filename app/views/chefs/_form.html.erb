@@ -5,58 +5,65 @@
         <div class="col-md-12">
             <%= form_for(@chef, :html => {class: "form-horizontal", role: "form"}) do |f| %>
                 <%# Chef Name Column %>
-                <div class="form-group">
-                    <div class="control-label col-md-2">
-                        <%= f.label :picture %>
+                <div class="row" style="padding-top:20px">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <%= f.file_field :picture, direct_upload: true %>
+                        </div>
                     </div>
-                    <div class="col-md-8">
-                        <%= f.file_field :picture, direct_upload: true %>
-                    </div>
+                    <div class="col-md-3"></div>
                 </div>
-                <div class="form-group">
-                    <div class="control-label col-md-2">
-                        <%= f.label :chef_name %>
+                <%# Chef Name Column %>
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <%= f.text_field :chef_name, class:'form-control', type:'text', placeholder:'USERNAME', autofocus: true, style:"text-align: center"%>
+                        </div>
                     </div>
-                    <div class="col-md-8">
-                        <%= f.text_field :chef_name, class:'form-control', type:'text', placeholder:'USERNAME', autofocus: true, style:"text-align: center"%>
-                    </div>
+                    <div class="col-md-3"></div>
                 </div>
                 <%# Chef Email Column %>
-                <div class="form-group">
-                    <div class="control-label col-md-2">
-                        <%= f.label :email %>
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <%= f.email_field :email, class:'form-control', placeholder:'EMAIL', style:"text-align: center"%>
+                        </div>
                     </div>
-                    <div class="col-md-8">
-                        <%= f.email_field :email, class:'form-control', placeholder:'EMAIL', style:"text-align: center"%>
-                    </div>
+                    <div class="col-md-3"></div>
                 </div>
                 <%# Chef Password Column %>
-                <div class="form-group">
-                    <div class="control-label col-md-2">
-                        <%= f.label :password %>
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <%= f.password_field :password, class:'form-control', placeholder:'PASSWORD', style:"text-align: center"%>
+                        </div>
                     </div>
-                    <div class="col-md-8">
-                        <%= f.password_field :password, class:'form-control', placeholder:'PASSWORD', style:"text-align: center"%>
-                    </div>
+                    <div class="col-md-3"></div>
                 </div>
                 <%# Chef Password Confirmation Column %>
-                <div class="form-group">
-                    <div class="control-label col-md-2">
-                        <%= f.label :password_confirmation, "Confirm Password" %>
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <%= f.password_field :password_confirmation, class:'form-control', placeholder:'CONFIRM PASSWORD', style:"text-align: center" %>
+                        </div>
                     </div>
-                    <div class="col-md-8">
-                        <%= f.password_field :password_confirmation, class:'form-control', placeholder:'CONFIRM PASSWORD', style:"text-align: center" %>
-                    </div>
+                    <div class="col-md-3"></div>
                 </div>
                 <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <%= f.submit(@chef.new_record? ? "Create my account" : "Update my Account", class:"btn btn-primary btn-lg")%>
+                    <div class="row text-center">
+                        <div class="col-md-5"></div>
+                        <div class="col-md-2">
+                            <%= f.submit(@chef.new_record? ? "Create my account" : "Update my Account", class:"btn btn-primary btn-lg")%>
+                        </div>
+                        <div class="col-md-5"></div>
                     </div>
                 </div>
             <% end %>
-            <div class="col-md-4 col-md-offset-4">
-                <%= link_to 'Cancel and Back to Recipe List', recipes_path %>
-            </div>
         </div>
     </div>
 </div>

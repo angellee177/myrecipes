@@ -2,39 +2,47 @@
 <div class="container">
     <%= form_for(:session, :html => {class: "form-horizontal", role: "form"}, url: login_path) do |f| %>
     <%# Chef Email Column %>
-        <div class="form-group">
-            <div class="control-label col-md-2">
-                <%= f.label :email %>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <%= f.email_field :email, class:'form-control', placeholder:'Enter your Email Here', style:"text-align:center"%>
+                </div>
             </div>
-            <div class="col-md-8">
-                <%= f.email_field :email, class:'form-control', placeholder:'Enter your Email Here'%>
-            </div>
+            <div class="col-md-3"></div>
         </div>
     <%# Chef Password Column %>
-        <div class="form-group">
-            <div class="control-label col-md-2">
-                <%= f.label :password %>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <%= f.password_field :password, class:'form-control', placeholder:'Enter your Password', style:"text-align:center"%>
+                </div>
             </div>
-            <div class="col-md-8">
-                <%= f.password_field :password, class:'form-control', placeholder:'Enter your Password'%>
+            <div class="col-md-3"></div>
+        </div>
+    <%# Forgot password button %>
+        <div class="row" style="padding-bottom:50px">
+            <div class="col-md-6"></div>
+            <div class="col-md-3">
+                 <%= link_to "Forgot password?", forgot_passwords_path, style:"float:right" %>
             </div>
+            <div class="col-md-3"></div>
         </div>
     <%# Submit Button %>
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <%= f.submit "Log In", class:'btn btn-primary btn-lg btn-xlarge'%>
+            <div class="row text-center">
+                <div class="col-md-5"></div>
+                <div class="col-md-2">
+                     <%= f.submit "Log In", class:'btn btn-primary btn-lg btn-xlarge'%>
+                </div>
+                <div class="col-md-5"></div>
             </div>
         </div>
     <% end %>
     <div class="row" style="padding-top:20px">
         <div class="colormatch" style="text-align:center;">
             <%= link_to "Don't have an account? Create new Account Now", signup_path%> 
-        </div>
-        <div class="colormatch" style="text-align:center">
-            <span style="color:#302F37; font-size:14pt; text-align: center">or</span>
-        </div>
-        <div class="colormatch" style="text-align:center;">
-            <%= link_to "Forgot password?", forgot_passwords_path %>
         </div>
     </div>
 </div>

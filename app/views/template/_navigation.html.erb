@@ -23,9 +23,9 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="padding-top: 20px">
-      <ul class="nav navbar-nav" style="font-family:righteous">
-        <li><%= link_to "Chefs", chefs_path %></li>
-        <li><%= link_to "All Recipes", recipes_path %></li>
+      <ul class="nav navbar-nav " style="font-family:righteous">
+        <li><a href="/chefs">Chefs</a></li>
+        <li><a href="/recipes">Recipes</a></li>
 
         <%# Only Login User can Create new Recipes, use If Else Statement %>
         <% if logged_in? %>

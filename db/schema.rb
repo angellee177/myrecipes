@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_04_025537) do
+ActiveRecord::Schema.define(version: 2020_04_14_021834) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2019_07_04_025537) do
     t.string "password_digest"
     t.string "picture"
     t.boolean "admin", default: false
+    t.string "token"
   end
 
   create_table "comments", force: :cascade do |t|
